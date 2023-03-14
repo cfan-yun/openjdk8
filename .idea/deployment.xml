@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData">
+    <serverData>
+      <paths name="OpenJDK8 (bdd2f6dd-2edc-4082-b2e0-36fb7fb92ac7)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/opt/jdk/jdk-jdk8-b120" local="$PROJECT_DIR$" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-openjdk8" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-openjdk8" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

@@ -1,0 +1,1 @@
+/usr/bin/c++   -g    CMakeFiles/openjdk8.dir/main.cpp.o  -o openjdk8 -rdynamic 

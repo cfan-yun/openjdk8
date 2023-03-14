@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="jdk_jdk8_b120" targetName="jdk_jdk8_b120" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug-OpenJDK8" CONFIG_NAME="Debug" TOOLCHAIN_NAME="OpenJDK8" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3e875299-68d5-40aa-b0db-7fff288e15ea" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="ProjectId" id="2GdMfVkqWbAj3SHEYb07oFcisjQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
+  </component>
+  <component name="RunManager" selected="GDB Remote Debug.centos7-openjdk8">
+    <configuration name="centos7-openjdk8" type="CLion_Remote" remoteCommand="tcp:192.168.80.159:8899" symbolFile="" sysroot="">
+      <pathMapping remote=":/opt/jdk/jdk-jdk8-b120" local="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="jdk_jdk8_b120" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="jdk_jdk8_b120" TARGET_NAME="jdk_jdk8_b120" CONFIG_NAME="Debug-OpenJDK8" RUN_TARGET_PROJECT_NAME="jdk_jdk8_b120" RUN_TARGET_NAME="jdk_jdk8_b120">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.jdk_jdk8_b120" />
+      <item itemvalue="GDB Remote Debug.centos7-openjdk8" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3e875299-68d5-40aa-b0db-7fff288e15ea" name="Default Changelist" comment="" />
+      <created>1666714110412</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1666714110412</updated>
+      <workItem from="1666714112579" duration="2173000" />
+      <workItem from="1666716564049" duration="4200000" />
+      <workItem from="1666749343813" duration="498000" />
+      <workItem from="1666882638835" duration="2257000" />
+      <workItem from="1667032309367" duration="2860000" />
+      <workItem from="1667040120259" duration="40952000" />
+      <workItem from="1668408999193" duration="15560000" />
+      <workItem from="1669634433496" duration="71000" />
+      <workItem from="1669996272171" duration="152000" />
+      <workItem from="1670839766494" duration="39000" />
+      <workItem from="1670859147785" duration="8796000" />
+      <workItem from="1671872377024" duration="99000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="476" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1668618029699">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="476" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1032@0.0.1920.1032" timestamp="1668618029699" />
+    <state x="739" y="274" key="FileChooserDialogImpl" timestamp="1668409312119">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="739" y="274" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1668409312119" />
+    <state width="1340" height="443" key="GridCell.Tab.0.bottom" timestamp="1666722543097">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1340" height="443" key="GridCell.Tab.0.bottom/0.0.1920.1032@0.0.1920.1032" timestamp="1666722543097" />
+    <state width="1340" height="443" key="GridCell.Tab.0.center" timestamp="1666722543097">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1340" height="443" key="GridCell.Tab.0.center/0.0.1920.1032@0.0.1920.1032" timestamp="1666722543097" />
+    <state width="1340" height="443" key="GridCell.Tab.0.left" timestamp="1666722543097">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1340" height="443" key="GridCell.Tab.0.left/0.0.1920.1032@0.0.1920.1032" timestamp="1666722543097" />
+    <state width="1340" height="443" key="GridCell.Tab.0.right" timestamp="1666722543097">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1340" height="443" key="GridCell.Tab.0.right/0.0.1920.1032@0.0.1920.1032" timestamp="1666722543097" />
+    <state width="1340" height="443" key="GridCell.Tab.1.bottom" timestamp="1666722543097">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1340" height="443" key="GridCell.Tab.1.bottom/0.0.1920.1032@0.0.1920.1032" timestamp="1666722543097" />
+    <state width="1340" height="443" key="GridCell.Tab.1.center" timestamp="1666722543097">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1340" height="443" key="GridCell.Tab.1.center/0.0.1920.1032@0.0.1920.1032" timestamp="1666722543097" />
+    <state width="1340" height="443" key="GridCell.Tab.1.left" timestamp="1666722543097">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1340" height="443" key="GridCell.Tab.1.left/0.0.1920.1032@0.0.1920.1032" timestamp="1666722543097" />
+    <state width="1340" height="443" key="GridCell.Tab.1.right" timestamp="1666722543097">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1340" height="443" key="GridCell.Tab.1.right/0.0.1920.1032@0.0.1920.1032" timestamp="1666722543097" />
+    <state x="463" y="161" key="SettingsEditor" timestamp="1671123521363">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="463" y="161" key="SettingsEditor/0.0.1920.1032@0.0.1920.1032" timestamp="1671123521363" />
+    <state width="242" height="198" key="ShowFilterAction_Filter_Popup" timestamp="1666715398439">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="242" height="198" key="ShowFilterAction_Filter_Popup/0.0.1920.1032@0.0.1920.1032" timestamp="1666715398439" />
+    <state x="652" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1671872379243">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="652" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1032@0.0.1920.1032" timestamp="1671872379243" />
+    <state x="714" y="142" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1668518542944">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="714" y="142" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1032@0.0.1920.1032" timestamp="1668518542944" />
+    <state x="791" y="104" width="759" height="822" key="find.popup" timestamp="1671123091217">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="791" y="104" width="759" height="822" key="find.popup/0.0.1920.1032@0.0.1920.1032" timestamp="1671123091217" />
+    <state x="838" y="252" width="423" height="527" key="ftp.server.browser" timestamp="1666714589797">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="838" y="252" width="423" height="527" key="ftp.server.browser/0.0.1920.1032@0.0.1920.1032" timestamp="1666714589797" />
+    <state x="1049" y="240" width="672" height="678" key="search.everywhere.popup" timestamp="1671122541641">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="1049" y="240" width="672" height="678" key="search.everywhere.popup/0.0.1920.1032@0.0.1920.1032" timestamp="1671122541641" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/jdk/src/share/bin/java.c</url>
+          <line>350</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/jdk/src/share/bin/java.c</url>
+          <line>366</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/jdk/src/share/bin/java.c</url>
+          <line>186</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/jdk/src/share/bin/main.c</url>
+          <line>124</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/jdk/src/share/bin/main.c</url>
+          <line>96</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/build/linux-x86_64-normal-server-slowdebug/images/src/launcher/java_md_solinux.c</url>
+          <line>814</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/build/linux-x86_64-normal-server-slowdebug/images/src/launcher/java_md_solinux.c</url>
+          <line>1060</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/jdk/src/share/bin/java.c</url>
+          <line>370</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/jdk/src/share/bin/java.c</url>
+          <line>298</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/jdk/src/share/bin/java.c</url>
+          <line>1903</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/jdk/src/share/bin/java.c</url>
+          <line>247</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/jdk/src/solaris/bin/java_md_solinux.c</url>
+          <line>814</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/jdk/src/solaris/bin/java_md_solinux.c</url>
+          <line>1060</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/jdk/src/solaris/bin/java_md_solinux.c</url>
+          <line>1061</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/jdk/src/share/bin/java.c</url>
+          <line>1126</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/jdk/src/share/bin/java.c</url>
+          <line>1144</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/hotspot/src/share/vm/prims/jni.cpp</url>
+          <line>5108</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/hotspot/src/share/vm/prims/jni.cpp</url>
+          <line>5165</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/hotspot/src/share/vm/runtime/thread.cpp</url>
+          <line>3404</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/hotspot/src/os/linux/vm/os_linux.cpp</url>
+          <line>984</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/hotspot/src/share/vm/prims/jvm.cpp</url>
+          <line>2850</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/hotspot/src/share/vm/prims/jvm.cpp</url>
+          <line>2883</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/hotspot/src/share/vm/runtime/thread.cpp</url>
+          <line>1575</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/hotspot/src/share/vm/prims/jvm.cpp</url>
+          <line>2816</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/hotspot/src/share/vm/runtime/thread.hpp</url>
+          <line>115</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/hotspot/src/os/linux/vm/os_linux.cpp</url>
+          <line>933</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/hotspot/src/os/linux/vm/os_linux.cpp</url>
+          <line>811</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/hotspot/src/os/linux/vm/os_linux.cpp</url>
+          <line>859</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/hotspot/src/os/linux/vm/os_linux.cpp</url>
+          <line>849</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/hotspot/src/share/vm/prims/jvm.cpp</url>
+          <line>3094</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/hotspot/src/share/vm/prims/unsafe.cpp</url>
+          <line>1177</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/jdk/src/share/native/java/lang/System.c</url>
+          <line>171</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/hotspot/src/share/vm/runtime/thread.cpp</url>
+          <line>3499</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/hotspot/src/share/vm/runtime/thread.cpp</url>
+          <line>3517</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
