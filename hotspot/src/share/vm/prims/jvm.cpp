@@ -3020,17 +3020,17 @@ JVM_END
 JVM_ENTRY(void, JVM_Sleep(JNIEnv* env, jclass threadClass, jlong millis))
   JVMWrapper("JVM_Sleep");
 
-  if (millis < 0) {
+  if (millis < 0) {//如果睡眠时间小于0， 则抛出异常，这里数据的校验在jvm层逻辑中校验
     THROW_MSG(vmSymbols::java_lang_IllegalArgumentException(), "timeout value is negative");
   }
-
-  if (Thread::is_interrupted (THREAD, true) && !HAS_PENDING_EXCEPTION) {
+  //如果线程被打断，那么也抛出异常
+  if (Thread::is_interrupted (THREAD, true) && !HAS_PENDING_EXCEPTION) {//如果线程已经中断，那么抛出异常
     THROW_MSG(vmSymbols::java_lang_InterruptedException(), "sleep interrupted");
   }
 
   // Save current thread state and restore it at the end of this block.
   // And set new thread state to SLEEPING.
-  JavaThreadSleepState jtss(thread);
+  JavaThreadSleepState jtss(thread);// 增加 sleep次数，并启动计入sleep耗时的计数器
 
 #ifndef USDT2
   HS_DTRACE_PROBE1(hotspot, thread__sleep__begin, millis);
@@ -3041,28 +3041,28 @@ JVM_ENTRY(void, JVM_Sleep(JNIEnv* env, jclass threadClass, jlong millis))
 
   EventThreadSleep event;
 
-  if (millis == 0) {
+  if (millis == 0) {//这里允许随眠时间为0
     // When ConvertSleepToYield is on, this matches the classic VM implementation of
     // JVM_Sleep. Critical for similar threading behaviour (Win32)
     // It appears that in certain GUI contexts, it may be beneficial to do a short sleep
     // for SOLARIS
-    if (ConvertSleepToYield) {
-      os::yield();
+    if (ConvertSleepToYield) {// x86下ConvertSleepToYield为true
+      os::yield();//操作系统执行权让给其他人
     } else {
-      ThreadState old_state = thread->osthread()->get_state();
-      thread->osthread()->set_state(SLEEPING);
-      os::sleep(thread, MinSleepInterval, false);
-      thread->osthread()->set_state(old_state);
+      ThreadState old_state = thread->osthread()->get_state();// 获取并保存线程的旧状态
+      thread->osthread()->set_state(SLEEPING);//将osthread的线程状态设置为SLEEPING
+      os::sleep(thread, MinSleepInterval, false);//调用系统级别的sleep方法，这里还判断是不是被中断
+      thread->osthread()->set_state(old_state);//恢复线程状态
     }
   } else {
-    ThreadState old_state = thread->osthread()->get_state();
-    thread->osthread()->set_state(SLEEPING);
-    if (os::sleep(thread, millis, true) == OS_INTRPT) {
+    ThreadState old_state = thread->osthread()->get_state();// 获取并保存线程的旧状态
+    thread->osthread()->set_state(SLEEPING);//将osthread的线程状态设置为SLEEPING
+    if (os::sleep(thread, millis, true) == OS_INTRPT) {//重要的是这里调用了os的sleep方法，这里还判断了是不是被中断
       // An asynchronous exception (e.g., ThreadDeathException) could have been thrown on
       // us while we were sleeping. We do not overwrite those.
       if (!HAS_PENDING_EXCEPTION) {
-        if (event.should_commit()) {
-          event.set_time(millis);
+        if (event.should_commit()) {//sleep被中断了
+          event.set_time(millis);// 发布事件
           event.commit();
         }
 #ifndef USDT2
@@ -3155,13 +3155,13 @@ JVM_ENTRY(void, JVM_Interrupt(JNIEnv* env, jobject jthread))
   JVMWrapper("JVM_Interrupt");
 
   // Ensure that the C++ Thread and OSThread structures aren't freed before we operate
-  oop java_thread = JNIHandles::resolve_non_null(jthread);
-  MutexLockerEx ml(thread->threadObj() == java_thread ? NULL : Threads_lock);
+  oop java_thread = JNIHandles::resolve_non_null(jthread);//获取对应的Thread实例
+  MutexLockerEx ml(thread->threadObj() == java_thread ? NULL : Threads_lock);//如果就是当前线程，则不需要获取
   // We need to re-resolve the java_thread, since a GC might have happened during the
   // acquire of the lock
-  JavaThread* thr = java_lang_Thread::thread(JNIHandles::resolve_non_null(jthread));
+  JavaThread* thr = java_lang_Thread::thread(JNIHandles::resolve_non_null(jthread));//获取关联的java_thread对象
   if (thr != NULL) {
-    Thread::interrupt(thr);
+    Thread::interrupt(thr);//调用中断方法
   }
 JVM_END
 

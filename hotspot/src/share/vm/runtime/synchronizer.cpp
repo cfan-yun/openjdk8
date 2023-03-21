@@ -350,7 +350,7 @@ void ObjectSynchronizer::jni_exit(oop obj, Thread* THREAD) {
 // -----------------------------------------------------------------------------
 // Internal VM locks on java objects
 // standard constructor, allows locking failures
-ObjectLocker::ObjectLocker(Handle obj, Thread* thread, bool doLock) {
+ObjectLocker::ObjectLocker(Handle obj, Thread* thread, bool doLock) {//ObjectLocker构造函数fast_enter加锁
   _dolock = doLock;
   _thread = thread;
   debug_only(if (StrictSafepointChecks) _thread->check_for_valid_safepoint_state(false);)
@@ -359,11 +359,11 @@ ObjectLocker::ObjectLocker(Handle obj, Thread* thread, bool doLock) {
   if (_dolock) {
     TEVENT (ObjectLocker) ;
 
-    ObjectSynchronizer::fast_enter(_obj, &_lock, false, _thread);
+    ObjectSynchronizer::fast_enter(_obj, &_lock, false, _thread);// 构造函数加锁
   }
 }
 
-ObjectLocker::~ObjectLocker() {
+ObjectLocker::~ObjectLocker() {//ObjectLocker析构函数（一般用来和构造函数执行相反的动作） fast_exit 解锁（c++自动调用析构函数）
   if (_dolock) {
     ObjectSynchronizer::fast_exit(_obj(), &_lock, _thread);
   }

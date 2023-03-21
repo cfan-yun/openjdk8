@@ -1706,27 +1706,27 @@ void JavaThread::thread_main_inner() {
 }
 
 
-static void ensure_join(JavaThread* thread) {
+static void ensure_join(JavaThread* thread) {//ensure_join 是线程退出时调用
   // We do not need to grap the Threads_lock, since we are operating on ourself.
   Handle threadObj(thread, thread->threadObj());
   assert(threadObj.not_null(), "java thread object must exist");
-  ObjectLocker lock(threadObj, thread);
+  ObjectLocker lock(threadObj, thread);//创建ObjectLocker (实际上就是加锁，构造函数加锁，析构函数解锁，具体就是在)
   // Ignore pending exception (ThreadDeath), since we are exiting anyway
-  thread->clear_pending_exception();
+  thread->clear_pending_exception();//清楚待处理的异常，因为线程准备退出了
   // Thread is exiting. So set thread_status field in  java.lang.Thread class to TERMINATED.
-  java_lang_Thread::set_thread_status(threadObj(), java_lang_Thread::TERMINATED);
+  java_lang_Thread::set_thread_status(threadObj(), java_lang_Thread::TERMINATED);//设置线程为TERMINATED状态
   // Clear the native thread instance - this makes isAlive return false and allows the join()
   // to complete once we've done the notify_all below
-  java_lang_Thread::set_thread(threadObj(), NULL);
-  lock.notify_all(thread);
+  java_lang_Thread::set_thread(threadObj(), NULL);//将eetop属性置为NULL,这样isAlive方法就会返回false
+  lock.notify_all(thread);//唤醒所有在thread oop关联的重量级锁上等待
   // Ignore pending exception (ThreadDeath), since we are exiting anyway
-  thread->clear_pending_exception();
+  thread->clear_pending_exception();//清除待处理的异常（走到这里，ObjectLocker 生命周期结束，自动调用析构函数解锁）C++中自动调用析构函数
 }
 
 
 // For any new cleanup additions, please check to see if they need to be applied to
 // cleanup_failed_attach_current_thread as well.
-void JavaThread::exit(bool destroy_vm, ExitType exit_type) {
+void JavaThread::exit(bool destroy_vm, ExitType exit_type) {//正常退出线程或者异常后退出都是执行这个方法
   assert(this == JavaThread::current(),  "thread consistency check");
 
   HandleMark hm(this);
@@ -1753,7 +1753,7 @@ void JavaThread::exit(bool destroy_vm, ExitType exit_type) {
   if (!destroy_vm || JDK_Version::is_jdk12x_version()) {
     // JSR-166: change call from from ThreadGroup.uncaughtException to
     // java.lang.Thread.dispatchUncaughtException
-    if (uncaught_exception.not_null()) {
+    if (uncaught_exception.not_null()) {//如果有未捕获到的异常
       Handle group(this, java_lang_Thread::threadGroup(threadObj()));
       {
         EXCEPTION_MARK;
@@ -1867,7 +1867,7 @@ void JavaThread::exit(bool destroy_vm, ExitType exit_type) {
   // Notify waiters on thread object. This has to be done after exit() is called
   // on the thread (if the thread is the last thread in a daemon ThreadGroup the
   // group should have the destroyed bit set before waiters are notified).
-  ensure_join(this);
+  ensure_join(this);//ensure_join 是线程退出时调用，内部会调用notifyAll
   assert(!this->has_pending_exception(), "ensure_join should have cleared");
 
   // 6282335 JNI DetachCurrentThread spec states that all Java monitors
@@ -1890,17 +1890,17 @@ void JavaThread::exit(bool destroy_vm, ExitType exit_type) {
   if (active_handles() != NULL) {
     JNIHandleBlock* block = active_handles();
     set_active_handles(NULL);
-    JNIHandleBlock::release_block(block);
+    JNIHandleBlock::release_block(block);//释放JNI处理块
   }
 
   if (free_handle_block() != NULL) {
     JNIHandleBlock* block = free_handle_block();
     set_free_handle_block(NULL);
-    JNIHandleBlock::release_block(block);
+    JNIHandleBlock::release_block(block);//释放JNI处理块
   }
 
   // These have to be removed while this is still a valid thread.
-  remove_stack_guard_pages();
+  remove_stack_guard_pages();//移除保护页
 
   if (UseTLAB) {
     tlab().make_parsable(true);  // retire TLAB

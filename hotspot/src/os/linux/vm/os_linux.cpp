@@ -3800,13 +3800,13 @@ int os::sleep(Thread* thread, jlong millis, bool interruptible) {
 
   ParkEvent * const slp = thread->_SleepEvent ;
   slp->reset() ;
-  OrderAccess::fence() ;
+  OrderAccess::fence() ;//强制刷新内存
 
-  if (interruptible) {
+  if (interruptible) {//如果可中断
     jlong prevtime = javaTimeNanos();
 
-    for (;;) {
-      if (os::is_interrupted(thread, true)) {
+    for (;;) {//死循环检查线程是否中断
+      if (os::is_interrupted(thread, true)) {//如果线程已经被中断
         return OS_INTRPT;
       }
 
@@ -3815,12 +3815,12 @@ int os::sleep(Thread* thread, jlong millis, bool interruptible) {
       if (newtime - prevtime < 0) {
         // time moving backwards, should only happen if no monotonic clock
         // not a guarantee() because JVM should not abort on kernel/glibc bugs
-        assert(!Linux::supports_monotonic_clock(), "time moving backwards");
+        assert(!Linux::supports_monotonic_clock(), "time moving backwards");//linux  不支持monotonic_clock
       } else {
-        millis -= (newtime - prevtime) / NANOSECS_PER_MILLISEC;
+        millis -= (newtime - prevtime) / NANOSECS_PER_MILLISEC;//不断的减少时间，直到休眠时间到
       }
 
-      if(millis <= 0) {
+      if(millis <= 0) {//休眠时间已过
         return OS_OK;
       }
 
@@ -3829,24 +3829,24 @@ int os::sleep(Thread* thread, jlong millis, bool interruptible) {
       {
         assert(thread->is_Java_thread(), "sanity check");
         JavaThread *jt = (JavaThread *) thread;
-        ThreadBlockInVM tbivm(jt);
-        OSThreadWaitState osts(jt->osthread(), false /* not Object.wait() */);
+        ThreadBlockInVM tbivm(jt);//修改线程休眠状态为_thread_blocjed,等代码块退出将其恢复成_thread_in_vm 转换过
+        OSThreadWaitState osts(jt->osthread(), false /* not Object.wait() */);//将osthread状态修改为
 
         jt->set_suspend_equivalent();
         // cleared by handle_special_suspend_equivalent_condition() or
         // java_suspend_self() via check_and_wait_while_suspended()
 
-        slp->park(millis);
+        slp->park(millis);//当前线程休眠，如果线程被唤醒了则继续por循环park(millis) 休眠固定时间 
 
         // were we externally suspended while we were waiting?
         jt->check_and_wait_while_suspended();
       }
     }
-  } else {
+  } else {//如果不能被打断，除了不在返回OS_INTRPT以外逻辑完全相同
     OSThreadWaitState osts(thread->osthread(), false /* not Object.wait() */);
     jlong prevtime = javaTimeNanos();
 
-    for (;;) {
+    for (;;) {//逻辑同上只是不需要检查目标线程是否中断，使用与sleep时间特别短的情形，入sleep(0);
       // It'd be nice to avoid the back-to-back javaTimeNanos() calls on
       // the 1st iteration ...
       jlong newtime = javaTimeNanos();
@@ -4203,24 +4203,24 @@ void os::interrupt(Thread* thread) {
   assert(Thread::current() == thread || Threads_lock->owned_by_self(),
     "possibility of dangling Thread pointer");
 
-  OSThread* osthread = thread->osthread();
+  OSThread* osthread = thread->osthread();//获取os原生线程
 
-  if (!osthread->interrupted()) {
-    osthread->set_interrupted(true);
+  if (!osthread->interrupted()) {//中断其实只干两件事
+    osthread->set_interrupted(true);//设置interrupted标志为true
     // More than one thread can get here with the same value of osthread,
     // resulting in multiple notifications.  We do, however, want the store
     // to interrupted() to be visible to other threads before we execute unpark().
     OrderAccess::fence();
-    ParkEvent * const slp = thread->_SleepEvent ;
-    if (slp != NULL) slp->unpark() ;
+    ParkEvent * const slp = thread->_SleepEvent ;//针对sleep进行唤醒
+    if (slp != NULL) slp->unpark() ;//2.1、唤醒在_SleepEvent上等待的线程，_SleepEvent用于实现sleep
   }
 
   // For JSR166. Unpark even if interrupt status already was set
-  if (thread->is_Java_thread())
+  if (thread->is_Java_thread())// 2.2、唤醒parker上等待的线程，parker用于实现Unsafe的park和unpark方法
     ((JavaThread*)thread)->parker()->unpark();
 
   ParkEvent * ev = thread->_ParkEvent ;
-  if (ev != NULL) ev->unpark() ;
+  if (ev != NULL) ev->unpark() ;//2.3、唤醒在_ParkEvent上等待的线程，_ParkEvent用于实现synchronized关键字
 
 }
 
@@ -4228,12 +4228,12 @@ bool os::is_interrupted(Thread* thread, bool clear_interrupted) {
   assert(Thread::current() == thread || Threads_lock->owned_by_self(),
     "possibility of dangling Thread pointer");
 
-  OSThread* osthread = thread->osthread();
+  OSThread* osthread = thread->osthread();//获取关联的原生线程
 
-  bool interrupted = osthread->interrupted();
+  bool interrupted = osthread->interrupted();//获取线程是否被中断
 
-  if (interrupted && clear_interrupted) {
-    osthread->set_interrupted(false);
+  if (interrupted && clear_interrupted) {//如果需要清除interrupted标记
+    osthread->set_interrupted(false);//清除被中断标记
     // consider thread->_SleepEvent->reset() ... optional optimization
   }
 
